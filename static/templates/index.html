@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Customerce</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+<script src="{{url_for('static', filename='js/jscolor.js')}}"></script>
+
+
+
+<div class="header">
+	<img src="{{url_for('static', filename='images/icon.png')}}" width="40">
+	<div class="header-right">
+		<a class="tablink" onclick="openPage('buttonSettings', this, 'blue')"
+		   href="#" id="defaultOpen">Button Settings</a>
+		<a class="tablink" onclick="openPage('stickyBar', this, 'blue')"
+		   href="#">Sticking Bar Settings</a>
+		<a class="tablink" onclick="openPage('faq', this, 'blue')"
+		   href="#">FAQ</a>
+	</div>
+</div>
+
+
+<div class="enclosure">
+
+	<div id="buttonSettings" class="tabcontent" >
+		<h1>Button Settings</h1>
+		<br>
+		<form action = "{{url}}/admin/button_settings" method = "POST">
+			<p>Introduce your Whatsapp Phone Number:</p>
+
+			{% if shop.phone != None and shop.phone != ""%}
+			<textarea rows="4" cols="50" name="phone">{{shop.phone}}</textarea>
+			{% else %}
+			<textarea rows="4" cols="50" name="phone" placeholder="Your phone number"></textarea>
+			{% endif %}
+
+			<h2>Make sure to introduce your country code number.</h2>
+			<br>
+
+			<p>Pre-Filled Message on Customer Side:</p>
+
+			{% if shop.predefined_text != None and shop.predefined_text != "" %}
+			<textarea rows="4" cols="50" name="message">{{shop.predefined_text}}</textarea>
+			{% else %}
+			<textarea rows="4" cols="50" name="message" placeholder="Introduce your predefined message..."></textarea>
+			{% endif %}
+			<h2>Type the pre-filled message that your user would use to initiate the chat.</h2>
+			<br>
+
+			<p>Button Position:</p>
+
+			{% if shop.button_pos=="right" %}
+			<input type="radio" name="position" value="right" checked> Right<br>
+			<input type="radio" name="position" value="left"> Left<br>
+			{% else %}
+			<input type="radio" name="position" value="right"> Right<br>
+			<input type="radio" name="position" value="left" checked> Left<br>
+			{% endif %}
+			<h2>Change the position of your chat button.</h2>
+			<br><br>
+
+			<div class="marginbutton">
+				<button type="submit" class="custombutton">Save</button>
+			</div>
+		</form>
+	</div>
+
+
+	<div id="stickyBar" class="tabcontent">
+		<h1>Sticky Bar Settings</h1>
+		<form action = "{{url}}/admin/sticky_bar_settings" method = "POST">
+			<br>
+			<p>Enable Sticky Bar:</p>
+			{% if not shop.sticky_bar_enabled %}
+			<input type="radio" name="sticky_bar_enabled" value="enable"> Enable<br>
+			<input type="radio" name="sticky_bar_enabled" value="disable" checked> Disable<br>
+			{% else %}
+			<input type="radio" name="sticky_bar_enabled" value="enable" checked> Enable<br>
+			<input type="radio" name="sticky_bar_enabled" value="disable"> Disable<br>
+			{% endif %}
+			<h2>Introduce a sticky bar to write some message.</h2>
+
+			<br>
+			<p>Sticky Bar Color:</p>
+			<input class="jscolor" value="{{shop.sticky_bar_color}}" name="sticky_bar_color">
+			<h2>Choose a color for bar background:</h2>
+			<br>
+
+			<p>Sticky Label Text:</p>
+			{% if shop.sticky_label_text != None and shop.sticky_label_text != "" %}
+			<textarea name="sticky_label_text">{{shop.sticky_label_text}}</textarea>
+			{% else %}
+			<textarea name="sticky_label_text"
+					  placeholder="How can I help you? ... Do you want to get a discount? ..."></textarea>
+			{% endif %}
+
+			<h2>Write something to catch the attention of your customers.</h2>
+
+			<br>
+			<p>Sticky Bar Color Text:</p>
+			<input class="jscolor" name="sticky_bar_text_color" value={{shop.sticky_bar_text_color}}>
+			<h2>Choose a calor for bar text.</h2>
+
+			<div class="marginbutton">
+				<button type="submit" class="custombutton">Save</button>
+			</div>
+		</form>
+	</div>
+
+
+	<div id="faq" class="tabcontent">
+		<h1>Frequently Asked Questions</h1>
+		<br>
+		<h3>What is the cost of this App?</h3>
+		<p>The cost of this App is free for the first 30 days. From there, the price will be 3.99€</p>
+		<br>
+		<h3>What is exactly the country code?</h3>
+		<p>The country code will depend on the origin country of your mobile phone's plan. You should first write a (+) and then your country code with your mobile phone number. Here you can find a list of some country codes:
+			<br> -USA: +1
+			<br> -Canada: +1
+			<br> -UK: +44
+			<br> -France: +33
+			<br> -Australia: +61
+			<br> -Spain: +34
+			<br> -Germany: +49
+			<br> -Italy: +39
+		</p>
+		<br>
+		<h3>What is exactly the pre-filled message?</h3>
+		<p>This is the pre-filled message it would appear on your customer's phone while initiating the chat with you. </p>
+		<br>
+		<h3>Will this app work on a desktop?</h3>
+		<p>The app will work on desktops, however the customer should use Whatsapp web.</p>
+		<br>
+		<!-- 		<h3>How can I increase the number of leads?</h3>
+                <p></p>
+                <br> -->
+		<h3>How do I know which product the user was looking for?</h3>
+		<p>The app will automatically sent you the website that your customer is looking for.</p>
+		<br>
+	</div>
+
+</div>
+
+</body>
+<script src="{{url_for('static', filename='js/tabs.js')}}"></script>
+</html>

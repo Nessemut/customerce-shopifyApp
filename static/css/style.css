@@ -1,0 +1,132 @@
+body {
+	background:#F4F6F8;
+	margin:0;
+	padding:0;
+} 
+
+p{
+	font-family:Segoe UI;
+	font-size: 18px;
+}
+
+h1{
+	font-family:Segoe UI;
+	font-size: 30px;
+}
+
+h2{
+	font-family:Segoe UI;
+	font-size: 15px;
+    font-weight:normal;
+    font-style: italic;
+}
+
+h3{
+	font-family:Segoe UI;
+}
+
+/* header with 1C2260 a blue background and some padding */
+.header {
+  overflow: hidden;
+  background-color: #1C2260;
+  padding: 10px 10px;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: white;
+  padding: 12px;
+  text-decoration: none;
+  font-family:Segoe UI;
+  font-size: 18px; 
+  line-height: 25px;
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
+/* Define the enclosure of the platform */
+.enclosure{
+	padding-right: 10%;
+	padding-left: 10%;
+	margin-top: 5%;
+	padding-bottom: 5%;
+	text-align:left;
+}
+
+/* Input of phone number */
+input[type=text]{
+	width: 100%;
+	padding: 10px 10px;
+	border: 1px solid #c4cdd5;
+	border-radius: 5px;
+	font-size: 16px;
+	font-family: Segoe UI;
+}
+
+/* Input of pre-filled message */
+textarea{
+  width: 100%;
+  padding: 10px 10px;
+  height: 100px;
+  border: 1px solid #c4cdd5;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: none;
+  font-family: Segoe UI;
+
+}
+
+/* Margin Button */
+.marginbutton{
+	padding-top:1%;
+	text-align:center;
+}
+
+/* Button Style*/
+.custombutton{
+	padding:10px 40px;
+	border: none;
+	color:white;
+	background-color:#FF0000;
+	border-radius: 5px;
+	cursor:pointer;
+	font-family:Segoe UI;
+	font-size: 18px;
+
+/* Set height of body and the document to 100% to enable "full page tabs" */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #777;
+  cursor:pointer;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+}
