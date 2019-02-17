@@ -1,5 +1,6 @@
 import json
 import logging
+import sys
 
 
 class AppConfig:
@@ -12,6 +13,8 @@ class AppConfig:
             cls.dictdump = json.loads(open('app_config.json').read())
         except FileNotFoundError:
             logging.error('Config file not found')
+            sys.exit()
+
         AppConfig.url = AppConfig.generate_url()
 
     @classmethod

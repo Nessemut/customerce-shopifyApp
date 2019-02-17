@@ -29,7 +29,7 @@
 	<div id="buttonSettings" class="tabcontent" >
 		<h1>Button Settings</h1>
 		<br>
-		<form action = "{{url}}/admin/button_settings" method = "POST">
+		<form action = "{{url}}/admin/button_settings?shop={{shop.name}}" method = "POST">
 			<p>Introduce your Whatsapp Phone Number:</p>
 
 			{% if shop.phone != None and shop.phone != ""%}
@@ -72,7 +72,7 @@
 
 	<div id="stickyBar" class="tabcontent">
 		<h1>Sticky Bar Settings</h1>
-		<form action = "{{url}}/admin/sticky_bar_settings" method = "POST">
+		<form action = "{{url}}/admin/sticky_bar_settings?shop={{shop.name}}" method = "POST">
 			<br>
 			<p>Enable Sticky Bar:</p>
 			{% if not shop.sticky_bar_enabled %}
@@ -136,9 +136,11 @@
 		<h3>Will this app work on a desktop?</h3>
 		<p>The app will work on desktops, however the customer should use Whatsapp web.</p>
 		<br>
-		<!-- 		<h3>How can I increase the number of leads?</h3>
-                <p></p>
-                <br> -->
+		<!--
+		<h3>How can I increase the number of leads?</h3>
+        <p></p>
+        <br>
+		-->
 		<h3>How do I know which product the user was looking for?</h3>
 		<p>The app will automatically sent you the website that your customer is looking for.</p>
 		<br>
