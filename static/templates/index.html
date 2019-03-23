@@ -26,10 +26,12 @@
 
 <div class="enclosure">
 
+	<form action = "{{url}}/admin/settings" method = "POST">
+
 	<div id="buttonSettings" class="tabcontent" >
 		<h1>Button Settings</h1>
 		<br>
-		<form action = "{{url}}/admin/button_settings?shop={{shop.name}}" method = "POST">
+
 			<p>Introduce your Whatsapp Phone Number:</p>
 
 			{% if shop.phone != None and shop.phone != ""%}
@@ -66,13 +68,12 @@
 			<div class="marginbutton">
 				<button type="submit" class="custombutton">Save</button>
 			</div>
-		</form>
 	</div>
 
 
 	<div id="stickyBar" class="tabcontent">
 		<h1>Sticky Bar Settings</h1>
-		<form action = "{{url}}/admin/sticky_bar_settings?shop={{shop.name}}" method = "POST">
+
 			<br>
 			<p>Enable Sticky Bar:</p>
 			{% if not shop.sticky_bar_enabled %}
@@ -95,7 +96,7 @@
 			<textarea name="sticky_label_text">{{shop.sticky_label_text}}</textarea>
 			{% else %}
 			<textarea name="sticky_label_text"
-					  placeholder="How can I help you? ... Do you want to get a discount? ..."></textarea>
+					  placeholder="How can I help you? Do you want to get a discount? (Leave blank for a default WhatsApp icon)"></textarea>
 			{% endif %}
 
 			<h2>Write something to catch the attention of your customers.</h2>
@@ -103,14 +104,14 @@
 			<br>
 			<p>Sticky Bar Color Text:</p>
 			<input class="jscolor" name="sticky_bar_text_color" value={{shop.sticky_bar_text_color}}>
-			<h2>Choose a calor for bar text.</h2>
+			<h2>Choose a color for bar text.</h2>
 
 			<div class="marginbutton">
 				<button type="submit" class="custombutton">Save</button>
 			</div>
-		</form>
-	</div>
 
+	</div>
+	</form>
 
 	<div id="faq" class="tabcontent">
 		<h1>Frequently Asked Questions</h1>
@@ -119,7 +120,9 @@
 		<p>The cost of this App is free for the first 30 days. From there, the price will be 3.99€</p>
 		<br>
 		<h3>What is exactly the country code?</h3>
-		<p>The country code will depend on the origin country of your mobile phone's plan. You should first write a (+) and then your country code with your mobile phone number. Here you can find a list of some country codes:
+		<p>The country code will depend on the origin country of your mobile phone's plan.
+			You should first write a (+) and then your country code with your mobile phone number.
+			Here you can find a list of some country codes:
 			<br> -USA: +1
 			<br> -Canada: +1
 			<br> -UK: +44

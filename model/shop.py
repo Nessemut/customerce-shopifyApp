@@ -8,3 +8,4 @@ class Shop:
     sticky_bar_color = "33CC33"
     sticky_label_text = None
     sticky_bar_text_color = "FFFFFF"
+    script_tag_id = None

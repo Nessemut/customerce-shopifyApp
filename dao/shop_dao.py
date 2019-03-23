@@ -10,13 +10,14 @@ def save_shop(shop):
         shop.name: {
             'name': shop.name,
             'token': shop.token,
-            'phone': shop.phone,
+            'phone': shop.phone.replace('+', ''),
             'predefined_text': shop.predefined_text,
             'button_pos': shop.button_pos,
             'sticky_bar_enabled': shop.sticky_bar_enabled,
             'sticky_bar_color': shop.sticky_bar_color,
             'sticky_label_text': shop.sticky_label_text,
             'sticky_bar_text_color': shop.sticky_bar_text_color,
+            'script_tag_id': shop.script_tag_id,
         }
     })
 
@@ -50,6 +51,11 @@ def load_shop(name):
         shop.sticky_bar_text_color = data['sticky_bar_text_color']
     except KeyError:
         shop.sticky_bar_text_color = 'FFFFFF'
+    try:
+        shop.script_tag_id = data['script_tag_id']
+    except KeyError:
+        shop.script_tag_id = None
+
     return shop
 
 
