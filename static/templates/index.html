@@ -35,9 +35,9 @@
 			<p>Introduce your Whatsapp Phone Number:</p>
 
 			{% if shop.phone != None and shop.phone != ""%}
-			<textarea rows="4" cols="50" name="phone">{{shop.phone}}</textarea>
+			<textarea rows="1" cols="20" name="phone" class="smallTextarea">{{shop.phone}}</textarea>
 			{% else %}
-			<textarea rows="4" cols="50" name="phone" placeholder="Your phone number"></textarea>
+			<textarea rows="1" cols="20" name="phone" class="smallTextarea" placeholder="Your phone number"></textarea>
 			{% endif %}
 
 			<h2>Make sure to introduce your country code number.</h2>
@@ -93,13 +93,13 @@
 
 			<p>Sticky Label Text:</p>
 			{% if shop.sticky_label_text != None and shop.sticky_label_text != "" %}
-			<textarea name="sticky_label_text">{{shop.sticky_label_text}}</textarea>
+			<textarea name="sticky_label_text" class="mediumTextarea" maxlength="40">{{shop.sticky_label_text}}</textarea>
 			{% else %}
-			<textarea name="sticky_label_text"
-					  placeholder="How can I help you? Do you want to get a discount? (Leave blank for a default WhatsApp icon)"></textarea>
+			<textarea name="sticky_label_text" class="mediumTextarea" maxlength="40"
+					  placeholder="How can I help you? ... Do you want to get a discount? ... (Max 40 characters)"></textarea>
 			{% endif %}
 
-			<h2>Write something to catch the attention of your customers.</h2>
+			<h2>Write something to catch the attention of your customers, or leave blank for a default WhatsApp icon.</h2>
 
 			<br>
 			<p>Sticky Bar Color Text:</p>

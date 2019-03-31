@@ -15,7 +15,7 @@ def save_shop(shop):
             'button_pos': shop.button_pos,
             'sticky_bar_enabled': shop.sticky_bar_enabled,
             'sticky_bar_color': shop.sticky_bar_color,
-            'sticky_label_text': shop.sticky_label_text,
+            'sticky_label_text': shop.sticky_label_text[0:40],
             'sticky_bar_text_color': shop.sticky_bar_text_color,
             'script_tag_id': shop.script_tag_id,
         }

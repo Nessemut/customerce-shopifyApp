@@ -62,4 +62,3 @@ def build_script(shop):
 
     f = open(path, 'a')
     f.write(var)
-
