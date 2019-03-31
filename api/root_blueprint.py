@@ -13,8 +13,7 @@ def root():
     if request.args.get("shop") is not None:
         current_shop.name = request.args.get("shop").replace('.myshopify.com', '')
 
-        # TODO: handle app's uninstall
-        if is_registered(current_shop.name):
+        if is_registered(current_shop.name) and request.args.get("locale") is not None:
             shop = load_shop(current_shop.name)
             r = make_response(render_template('index.html', url=AppConfig.url, shop=shop))
             r.set_cookie('shop-name', shop.name)
