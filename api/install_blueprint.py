@@ -1,21 +1,35 @@
 from flask import Blueprint, redirect, request
 
-from dao.shop_dao import save_shop
-from model.shopify_api import ShopifyApi
+from dao.shop_dao import save_shop, load_shop
+from model.shop import Shop
+from util.shopify_api import ShopifyApi
 
 install_blueprint = Blueprint('install_blueprint', __name__, url_prefix='/install')
-api = ShopifyApi()
 
 
 @install_blueprint.route('/confirm', methods=['GET', 'POST'])
 def confirm():
+    shop = Shop()
+    shop.name = request.args['shop'].replace('.myshopify.com', '')
+    api = ShopifyApi(shop)
     auth = request.args.get("code")
     api.confirm_installation(auth)
-    save_shop(api.shop)
-    return redirect(api.get_url('apps'), code=302)
+
+    try:
+        token = shop.token
+        shop = load_shop(shop.name)
+        shop.token = token
+    except TypeError:
+        pass
+
+    last_billing = shop.billing_id
+    url = api.add_billing(last_billing)
+    return redirect(url, code=302)
 
 
 @install_blueprint.route('/redirect', methods=['GET', 'POST'])
 def install_redirect():
-    api.shop.name = request.args['shop']
+    shop = Shop()
+    shop.name = request.args['shop']
+    api = ShopifyApi(shop)
     return redirect(api.redirect_to_install_confirmation(), code=302)

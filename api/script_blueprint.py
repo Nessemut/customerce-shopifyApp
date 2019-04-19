@@ -1,8 +1,6 @@
 from flask import Blueprint, send_from_directory, request, abort
 
-from dao.shop_dao import load_shop, save_shop
 from appconfig import AppConfig
-from model.shopify_api import ShopifyApi
 
 script_blueprint = Blueprint('script_blueprint', __name__, url_prefix='/shop_scripts')
 

@@ -16,7 +16,6 @@ except FileNotFoundError:
     sys.exit()
 
 
-# TODO: integrate with billing API
 app = Flask(__name__, static_folder="static", template_folder="static/templates")
 
 from api.admin_blueprint import admin_blueprint
@@ -34,6 +33,6 @@ app.register_blueprint(script_blueprint)
 if __name__ == '__main__':
     app.run(
         ssl_context=AppConfig.get("ssl_context"),
-        host=AppConfig.get("app_host"),
+        host=AppConfig.get("app_listen_host"),
         port=AppConfig.get("app_port"),
     )

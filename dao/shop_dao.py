@@ -6,7 +6,7 @@ ref = db.reference('shop')
 
 
 def save_shop(shop):
-    ref.set({
+    ref.update({
         shop.name: {
             'name': shop.name,
             'token': shop.token,
@@ -18,12 +18,14 @@ def save_shop(shop):
             'sticky_label_text': shop.sticky_label_text,
             'sticky_bar_text_color': shop.sticky_bar_text_color,
             'script_tag_id': shop.script_tag_id,
+            'billing_id': shop.billing_id
         }
     })
 
 
 def load_shop(name):
-    shop = Shop
+
+    shop = Shop()
     data = ref.child(name).get()
 
     shop.name = data['name']
@@ -55,6 +57,10 @@ def load_shop(name):
         shop.script_tag_id = data['script_tag_id']
     except KeyError:
         shop.script_tag_id = None
+    try:
+        shop.billing_id = data['billing_id']
+    except KeyError:
+        shop.billing_id = None
 
     return shop
 

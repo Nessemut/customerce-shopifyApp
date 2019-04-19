@@ -1,7 +1,7 @@
 from flask import Blueprint, redirect, request, url_for, make_response, render_template
 
 from dao.shop_dao import load_shop, save_shop
-from model.shopify_api import ShopifyApi
+from util.shopify_api import ShopifyApi
 
 admin_blueprint = Blueprint('admin_blueprint', __name__, url_prefix='/admin')
 
@@ -24,9 +24,8 @@ def settings():
     shop.sticky_label_text = request.form.get("sticky_label_text")[0:40]
     shop.sticky_bar_text_color = request.form.get("sticky_bar_text_color")
 
+    api = ShopifyApi(shop)
+    api.update_sticky_bar()
     save_shop(shop)
-    api = ShopifyApi()
-    api.shop = shop
-    api.update_sticky_bar(shop)
 
     return redirect(url_for('root_blueprint.root', shop=shop.name), code=302)

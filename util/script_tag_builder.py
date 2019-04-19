@@ -1,7 +1,7 @@
 from urllib import parse
 from os import remove
 from appconfig import AppConfig
-
+from util.validator import valid_phone
 
 def build_text_script(shop):
     var = (
@@ -45,7 +45,7 @@ def build_whatsapp_button_script(shop):
 
 
 def build_script(shop):
-    if shop.sticky_bar_enabled:
+    if shop.sticky_bar_enabled and valid_phone(shop.phone):
         if shop.sticky_label_text is not None and shop.sticky_label_text != '':
             var = build_text_script(shop)
         else:

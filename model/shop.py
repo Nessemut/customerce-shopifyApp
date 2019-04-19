@@ -9,3 +9,4 @@ class Shop:
     sticky_label_text = None
     sticky_bar_text_color = "FFFFFF"
     script_tag_id = None
+    billing_id = None
