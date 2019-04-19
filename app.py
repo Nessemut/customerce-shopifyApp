@@ -33,6 +33,6 @@ app.register_blueprint(script_blueprint)
 if __name__ == '__main__':
     app.run(
         ssl_context=AppConfig.get("ssl_context"),
-        host=AppConfig.get("app_listen_host"),
+        host=AppConfig.get("app_host"),
         port=AppConfig.get("app_port"),
     )
