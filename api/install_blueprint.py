@@ -18,11 +18,11 @@ def confirm():
     try:
         token = shop.token
         shop = load_shop(shop.name)
+        last_billing = shop.billing_id
         shop.token = token
     except TypeError:
-        pass
+        last_billing = None
 
-    last_billing = shop.billing_id
     url = api.add_billing(last_billing)
     return redirect(url, code=302)
 

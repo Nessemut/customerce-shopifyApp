@@ -3,6 +3,7 @@ from os import remove
 from appconfig import AppConfig
 from util.validator import valid_phone
 
+
 def build_text_script(shop):
     var = (
             "var div = document.createElement('a');\n"
