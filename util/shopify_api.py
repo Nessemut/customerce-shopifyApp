@@ -110,7 +110,7 @@ class ShopifyApi:
         if last_billing is None:
             return default_trial_period
 
-        url = self.get_url('{}.json'.format(last_billing))
+        url = self.get_url('recurring_application_charges/{}.json'.format(last_billing))
         header = self.get_header()
         header['Content-Type'] = 'application/json'
 
