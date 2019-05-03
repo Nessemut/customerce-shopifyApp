@@ -120,7 +120,11 @@ class ShopifyApi:
         except KeyError:
             return default_trial_period
 
-        activated = datetime.datetime.strptime(rdict['activated_on'], '%Y-%m-%d')
+        activated_on = rdict['activated_on']
+        if activated_on is None:
+            return default_trial_period
+
+        activated = datetime.datetime.strptime(activated_on, '%Y-%m-%d')
         today = datetime.datetime.today()
         period = default_trial_period - (today-activated).days
 
