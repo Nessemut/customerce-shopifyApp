@@ -10,6 +10,7 @@ def save_shop(shop):
         shop.name: {
             'name': shop.name,
             'token': shop.token,
+            'button_enabled': shop.button_enabled,
             'phone': shop.phone,
             'predefined_text': shop.predefined_text,
             'button_pos': shop.button_pos,
@@ -31,6 +32,7 @@ def load_shop(name):
     shop.name = data['name']
     shop.token = data['token']
     shop.button_pos = data['button_pos']
+    shop.button_enabled = data['button_enabled']
     shop.sticky_bar_enabled = data['sticky_bar_enabled']
 
     try:

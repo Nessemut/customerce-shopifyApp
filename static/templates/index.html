@@ -32,6 +32,18 @@
 		<h1>Button Settings</h1>
 		<br>
 
+			<br>
+			<p>Enable Button:</p>
+			{% if not shop.button_enabled %}
+			<input type="radio" name="button_enabled" value="enable"> Enable<br>
+			<input type="radio" name="button_enabled" value="disable" checked> Disable<br>
+			{% else %}
+			<input type="radio" name="button_enabled" value="enable" checked> Enable<br>
+			<input type="radio" name="button_enabled" value="disable"> Disable<br>
+			{% endif %}
+			<h2>Activate the button on your shop.</h2>
+
+			<br>
 			<p>Introduce your Whatsapp Phone Number:</p>
 
 			{% if shop.phone != None and shop.phone != ""%}
@@ -99,7 +111,7 @@
 					  placeholder="How can I help you? ... Do you want to get a discount? ... (Max 40 characters)"></textarea>
 			{% endif %}
 
-			<h2>Write something to catch the attention of your customers, or leave blank for a default WhatsApp icon.</h2>
+			<h2>Write something to catch the attention of your customers.</h2>
 
 			<br>
 			<p>Sticky Bar Color Text:</p>

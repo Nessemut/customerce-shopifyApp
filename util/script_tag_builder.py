@@ -46,13 +46,12 @@ def build_whatsapp_button_script(shop):
 
 
 def build_script(shop):
-    if shop.sticky_bar_enabled and valid_phone(shop.phone):
-        if shop.sticky_label_text is not None and shop.sticky_label_text != '':
+    var = ''
+    if shop.button_enabled and valid_phone(shop.phone):
+        if shop.sticky_bar_enabled and shop.sticky_label_text is not None and shop.sticky_label_text != '':
             var = build_text_script(shop)
         else:
             var = build_whatsapp_button_script(shop)
-    else:
-        var = ''
 
     path = AppConfig.get("shop_scripts_directory") + '{}.js'.format(shop.name)
 

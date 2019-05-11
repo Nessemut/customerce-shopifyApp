@@ -18,6 +18,7 @@ def settings():
 
     shop.phone = request.form.get("phone").replace('+', '')
     shop.predefined_text = request.form.get("message")
+    shop.button_enabled = (request.form.get("button_enabled") == 'enable')
     shop.button_pos = request.form.get("position")
     shop.sticky_bar_enabled = (request.form.get("sticky_bar_enabled") == 'enable')
     shop.sticky_bar_color = request.form.get("sticky_bar_color")
