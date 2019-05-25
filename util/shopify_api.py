@@ -84,7 +84,7 @@ class ShopifyApi:
                     "price": 2.99,
                     "test": AppConfig.get("environment") == "development",
                     "trial_days": trial_days,
-                    "return_url": "http://{}.myshopify.com/admin/apps".format(self.shop.name)
+                    "return_url": "http://{}.myshopify.com/admin/apps/customerce".format(self.shop.name)
                 }
             }),
             headers=header
