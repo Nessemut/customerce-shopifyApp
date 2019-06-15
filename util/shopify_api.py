@@ -81,7 +81,7 @@ class ShopifyApi:
             data=dumps({
                 "recurring_application_charge": {
                     "name": "Recurring charge",
-                    "price": 2.99,
+                    "price": 1.99,
                     "test": AppConfig.get("environment") == "development",
                     "trial_days": trial_days,
                     "return_url": "http://{}.myshopify.com/admin/apps/customerce".format(self.shop.name)
