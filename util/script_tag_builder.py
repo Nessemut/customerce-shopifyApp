@@ -14,6 +14,7 @@ def build_text_script(shop):
             "div.style.position = 'fixed';\n"
             "div.style.bottom = '1em';\n"
             "div.style.borderRadius = '18px'\n"
+            "div.style.zIndex = '99999';\n"
             "div.style.float = '" + shop.button_pos + "';\n"
             "div.style." + shop.button_pos + " = '1em';\n"
             "div.style.background = '#" + shop.sticky_bar_color + "';\n"
@@ -36,6 +37,7 @@ def build_whatsapp_button_script(shop):
             "div.style.position = 'fixed';\n"
             "div.style.bottom = '1em';\n"
             "div.style.float = '" + shop.button_pos + "';\n"
+            "div.style.zIndex = '99999';\n"
             "div.style." + shop.button_pos + " = '1em';\n"
             "div.href = \"https://api.whatsapp.com/send?phone=" +
             shop.phone + "&text=" + parse.quote(shop.predefined_text) + "\";\n"                                                
